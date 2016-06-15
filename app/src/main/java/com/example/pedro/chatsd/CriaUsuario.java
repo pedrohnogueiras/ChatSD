@@ -27,7 +27,7 @@ public class CriaUsuario extends AppCompatActivity {
     EditText numero = (EditText)findViewById(R.id.numero);
     Button cadastrar = (Button)findViewById(R.id.cadastrar);
 
-    cadastrar.OnClickListener(new View.OnClickListener())
+    /*cadastrar.OnClickListener(new View.OnClickListener())
 
     {
         @Override
@@ -60,7 +60,7 @@ public class CriaUsuario extends AppCompatActivity {
     }
 
     );
-    }
+    }*/
     private boolean checkFields(){
         String number = numero.getText().toString();
         String lastnameCheck = sobrenome.getText().toString();
