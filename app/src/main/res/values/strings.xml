@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ChatSD</string>
+
+    <string name="nome">Nome</string>
+    <string name="sobrenome">Sobrenome</string>
+    <string name="email">E-mail</string>
+    <string name="numero">Numero</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="usuario">Entre com os seus dados</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+</resources>

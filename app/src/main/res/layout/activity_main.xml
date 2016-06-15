@@ -1,0 +1,108 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:background="#f0f0f0"
+        android:minHeight="50dp"
+        android:minWidth="300dp"
+        android:hint="@string/nome"
+        android:paddingStart="15dp"
+        android:textCursorDrawable="@null"
+        android:elegantTextHeight="true"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp">
+    </EditText>
+
+    <EditText
+        android:id="@+id/sobrenome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:minHeight="50dp"
+        android:minWidth="300dp"
+        android:hint="@string/sobrenome"
+        android:background="#f0f0f0"
+        android:layout_below="@+id/nome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:paddingStart="15dp"
+        android:elegantTextHeight="true"
+        android:textCursorDrawable="@null"
+        />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:minHeight="50dp"
+        android:minWidth="300dp"
+        android:hint="@string/email"
+        android:background="#f0f0f0"
+        android:layout_below="@+id/sobrenome"
+        android:layout_alignLeft="@+id/sobrenome"
+        android:layout_alignStart="@+id/sobrenome"
+        android:layout_marginTop="20dp"
+        android:paddingStart="15dp"
+        android:elegantTextHeight="true"
+        android:textCursorDrawable="@null"
+        />
+
+    <Button
+        android:id="@+id/cadastrar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cadastrar"
+        android:minHeight="45dp"
+        android:minWidth="300dp"
+        android:background="#000000"
+        android:textColor="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:focusable="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numero"
+        android:inputType="phone"
+        android:layout_below="@+id/email"
+        android:layout_alignLeft="@+id/email"
+        android:layout_alignStart="@+id/email"
+        android:layout_alignRight="@+id/email"
+        android:layout_alignEnd="@+id/email"
+        android:background="#f0f0f0"
+        android:layout_marginTop="20dp"
+        android:minWidth="300dp"
+        android:minHeight="50dp"
+        android:hint="@string/numero"
+        android:paddingStart="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/usuario"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
