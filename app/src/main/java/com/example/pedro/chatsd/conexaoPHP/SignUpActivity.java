@@ -37,15 +37,16 @@ public class SignUpActivity extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... params){
         try{
-            String usuario = (String)params[0];
-            String email = (String)params[1];
-            String senha = (String)params[2];
+            String nome = (String)params[0];
+            String sobrenome = (String)params[1];
+            String email = (String)params[2];
+            String numero = (String)params[3];
 
-            String link = "http://cpro13640.publiccloud.com.br/scape/App/SignUpApp.php";
-            String dados = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(usuario, "UTF-8");
-            dados += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(senha, "UTF-8");
+            String link = "http://api.mywebserver.com/chat/postUsuario.php";
+            String dados = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(nome, "UTF-8");
+            dados += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(sobrenome, "UTF-8");
             dados += "&" + URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(email,"UTF-8");
-            dados += "&" + URLEncoder.encode("key" , "UTF-8") +  "=" + URLEncoder.encode("scape20132015appKey#", "UTF-8");
+            dados += "&" + URLEncoder.encode("key" , "UTF-8") +  "=" + URLEncoder.encode(numero, "UTF-8");
 
             URL url = new URL(link);
             URLConnection conn = url.openConnection();
