@@ -18,34 +18,41 @@ import com.example.pedro.chatsd.conexaoPHP.SignUpActivity;
 public class CriaUsuario extends AppCompatActivity {
 
     private static final String PREFS_NAME = "DadosPessoais";
+
+    EditText nome;
+    EditText sobrenome;
+    EditText email;
+    EditText numero;
+    Button cadastrar;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    EditText nome = (EditText)findViewById(R.id.nome);
-    EditText sobrenome = (EditText)findViewById(R.id.sobrenome);
-    EditText email = (EditText)findViewById(R.id.email);
-    EditText numero = (EditText)findViewById(R.id.numero);
-    Button cadastrar = (Button)findViewById(R.id.cadastrar);
+
+    nome = (EditText)findViewById(R.id.nome);
+    sobrenome = (EditText)findViewById(R.id.sobrenome);
+    email = (EditText)findViewById(R.id.email);
+    numero = (EditText)findViewById(R.id.numero);
+    cadastrar = (Button)findViewById(R.id.cadastrar);
 
     cadastrar.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             boolean fieldsOK = checkFields();
-            if(fieldsOK){
+            if (fieldsOK) {
                 SignUpActivity signUp = (SignUpActivity) new SignUpActivity(new SignUpActivity.AsyncResponse() {
                     @Override
                     public void processFinish(String output) {
                         Log.v("Dados:", "Dados2 = " + output);
-                        if(output.equals("1")){
-                            Toast.makeText(getApplicationContext(), "Email em uso" , Toast.LENGTH_SHORT).show();
-                        }
-                        else if(output.equals("2")){
+                        if (output.equals("1")) {
+                            Toast.makeText(getApplicationContext(), "Email em uso", Toast.LENGTH_SHORT).show();
+                        } else if (output.equals("2")) {
                             Toast.makeText(getApplicationContext(), getString(R.string.noconnection), Toast.LENGTH_SHORT).show();
-                        }
-                        else {
+                        } else {
                             String[] dadosUsuarios = output.split("/");
                             SharedPreferences dadosPessoais = getSharedPreferences(PREFS_NAME, 0);
                             SharedPreferences.Editor editor = dadosPessoais.edit();
@@ -60,9 +67,9 @@ public class CriaUsuario extends AppCompatActivity {
                 }).execute(nome.getText().toString(), email.getText().toString(), sobrenome.getText().toString(), numero.getText().toString());
             }
         }
-    };
+    });
 
-
+    }
     private boolean checkFields(){
         String number = numero.getText().toString();
         String lastnameCheck = sobrenome.getText().toString();
