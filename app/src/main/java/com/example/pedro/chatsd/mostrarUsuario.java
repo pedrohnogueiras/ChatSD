@@ -23,9 +23,9 @@ public class mostrarUsuario extends AppCompatActivity {
         numero = (TextView) findViewById(R.id.local);
 
         Intent intent = getIntent();
-        email.setText(intent.getStringExtra("Nome"));
-        nome.setText(intent.getStringExtra("DataI"));
-        sobrenome.setText(intent.getStringExtra("DataT"));
-         numero.setText(intent.getStringExtra("Local"));
+        email.setText(intent.getStringExtra("nome"));
+        nome.setText(intent.getStringExtra("sobrenome"));
+        sobrenome.setText(intent.getStringExtra("email"));
+        numero.setText(intent.getStringExtra("numero"));
     }
 }

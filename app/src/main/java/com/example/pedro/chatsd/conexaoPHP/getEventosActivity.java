@@ -35,18 +35,18 @@ public class getEventosActivity extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... params) {
         try {
-            String link = "http://api.mywebserver.com/chat/getUsuarios.php";
+            String link = "http://10.0.2.2/chat/getUsuarios.php";
 
-            String dados = URLEncoder.encode("key", "UTF-8") + "=" + URLEncoder.encode("scape20132015appKey#", "UTF-8");
+            //String dados = URLEncoder.encode("key", "UTF-8") + "=" + URLEncoder.encode("scape20132015appKey#", "UTF-8");
 
 
             URL url = new URL(link);
             URLConnection conn = url.openConnection();
             conn.setDoOutput(true);
 
-            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+           /* OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
             wr.write(dados);
-            wr.flush();
+            wr.flush();*/
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder sb = new StringBuilder();

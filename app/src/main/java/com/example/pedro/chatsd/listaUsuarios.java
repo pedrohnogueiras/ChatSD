@@ -49,7 +49,7 @@ public class listaUsuarios extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-               // preencherEventos(output);
+                preencherEventos(output);
                 startAdapter();
             }
         }).execute();
@@ -69,10 +69,10 @@ public class listaUsuarios extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), mostrarUsuario.class);
                 intent.putExtra("ID", eventosID.get(position));
-                intent.putExtra("Nome", usuarios_detalhados.get(position)[1]);
-                intent.putExtra("DataI", usuarios_detalhados.get(position)[2]);
-                intent.putExtra("DataT", usuarios_detalhados.get(position)[3]);
-                intent.putExtra("Local", usuarios_detalhados.get(position)[5]);
+                intent.putExtra("nome", usuarios_detalhados.get(position)[1]);
+                intent.putExtra("sobrenome", usuarios_detalhados.get(position)[2]);
+                intent.putExtra("email", usuarios_detalhados.get(position)[3]);
+                intent.putExtra("numero", usuarios_detalhados.get(position)[5]);
 
                 startActivity(intent);
             }
