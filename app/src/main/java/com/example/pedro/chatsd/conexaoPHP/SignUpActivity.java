@@ -42,11 +42,11 @@ public class SignUpActivity extends AsyncTask<String, Void, String> {
             String email = (String)params[2];
             String numero = (String)params[3];
 
-            String link = "http://api.mywebserver.com/chat/postUsuario.php";
-            String dados = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(nome, "UTF-8");
-            dados += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(sobrenome, "UTF-8");
+            String link = "http://10.0.2.2/chat/postUsuario.php";
+            String dados = URLEncoder.encode("nome", "UTF-8") + "=" + URLEncoder.encode(nome, "UTF-8");
+            dados += "&" + URLEncoder.encode("sobrenome", "UTF-8") + "=" + URLEncoder.encode(sobrenome, "UTF-8");
             dados += "&" + URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(email,"UTF-8");
-            dados += "&" + URLEncoder.encode("key" , "UTF-8") +  "=" + URLEncoder.encode(numero, "UTF-8");
+            dados += "&" + URLEncoder.encode("numero" , "UTF-8") +  "=" + URLEncoder.encode(numero, "UTF-8");
 
             URL url = new URL(link);
             URLConnection conn = url.openConnection();

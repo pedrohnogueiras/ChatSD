@@ -56,15 +56,17 @@ public class CriaUsuario extends AppCompatActivity {
                             String[] dadosUsuarios = output.split("/");
                             SharedPreferences dadosPessoais = getSharedPreferences(PREFS_NAME, 0);
                             SharedPreferences.Editor editor = dadosPessoais.edit();
-                            editor.putString("Email", dadosUsuarios[0]);
-                            editor.putString("Nome", dadosUsuarios[1]);
+                            editor.putString("nome", dadosUsuarios[0]);
+                            editor.putString("sobrenome", dadosUsuarios[1]);
+                            editor.putString("email", dadosUsuarios[2]);
+                            editor.putString("numero", dadosUsuarios[3]);
                             editor.commit();
                             Toast.makeText(getApplicationContext(), getString(R.string.cadastrosuccessful), Toast.LENGTH_SHORT).show();
 
                             finish();
                         }
                     }
-                }).execute(nome.getText().toString(), email.getText().toString(), sobrenome.getText().toString(), numero.getText().toString());
+                }).execute(nome.getText().toString(), sobrenome.getText().toString(), email.getText().toString(), numero.getText().toString());
             }
         }
     });
