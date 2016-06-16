@@ -16,14 +16,11 @@ public class usuarioListAdapter extends ArrayAdapter<String> {
 
     private final Activity context;
     private ArrayList<String[]> eventos;
-    private TextView EventoNome;
-    private TextView DataInicio;
-    private TextView DataFim;
-    private TextView DataAbr;
-    private TextView local;
+    private TextView email;
+
 
     public usuarioListAdapter(Activity context, ArrayList<String[]> eventos, ArrayList<String> eventosID) {
-        super(context, R.layout.listaevento_layout, eventosID);
+        super(context, R.layout.listaevento_layout,eventosID);
 
         this.context = context;
         this.eventos = eventos;
@@ -33,20 +30,14 @@ public class usuarioListAdapter extends ArrayAdapter<String> {
         LayoutInflater inflater = context.getLayoutInflater();
         View rowView = inflater.inflate(R.layout.listaevento_layout, null, true);
 
-        EventoNome = (TextView) rowView.findViewById(R.id.EventoNome);
-        DataInicio = (TextView)  rowView.findViewById(R.id.DataInicio);
-        DataFim = (TextView) rowView.findViewById(R.id.DataFim);
-        DataAbr = (TextView) rowView.findViewById(R.id.dataabr);
-        local = (TextView)  rowView.findViewById(R.id.local);
+
+        email = (TextView) rowView.findViewById(R.id.Email);
+
 
         String eventoAtual[] = eventos.get(position);
 
 
-        EventoNome.setText(eventoAtual[1]);
-        DataInicio.setText(eventoAtual[2]);
-        DataFim.setText(eventoAtual[3]);
-        DataAbr.setText(eventoAtual[4]);
-        local.setText(eventoAtual[5]);
+        email.setText(eventoAtual[1]);
 
         return rowView;
     };

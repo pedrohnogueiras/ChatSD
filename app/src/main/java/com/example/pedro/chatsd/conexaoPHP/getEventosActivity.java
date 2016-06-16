@@ -38,25 +38,32 @@ public class getEventosActivity extends AsyncTask<String, Void, String> {
             String link = "http://10.0.2.2/chat/getUsuarios.php";
 
             //String dados = URLEncoder.encode("key", "UTF-8") + "=" + URLEncoder.encode("scape20132015appKey#", "UTF-8");
-
+            Log.v("TEste","teste1");
 
             URL url = new URL(link);
             URLConnection conn = url.openConnection();
-            conn.setDoOutput(true);
+            //conn.setDoOutput(true);
 
-           /* OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+            Log.v("TEste", "teste2");
+    /*
+            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
             wr.write(dados);
-            wr.flush();*/
+            wr.flush();
+*/
+            Log.v("TEste", "teste3");
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder sb = new StringBuilder();
             String line = null;
 
-            while((line = reader.readLine()) != null){
+
+            while((line = reader.readLine()) != null)
+            {
+
                 sb.append(line);
                 break;
             }
-            Log.v("Eventos:", sb.toString());
+            Log.v("SB:", sb.toString());
             return sb.toString();
 
 

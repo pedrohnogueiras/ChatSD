@@ -3,6 +3,7 @@ package com.example.pedro.chatsd;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -36,13 +37,15 @@ public class listaUsuarios extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_tab_usuarios);
-        fillMonthsContent();
+        //fillMonthsContent();
         usuarios_detalhados = new ArrayList<>();
         usuariosDisponiveis = (ListView) findViewById(R.id.LVusuarios);
         debug = (TextView) findViewById(R.id.debug);
         getEventosActivity eventos = (getEventosActivity) new getEventosActivity(new getEventosActivity.AsyncResponse() {
             @Override
             public void processFinish(String output) {
+
+                Log.v("Dados:", "Dados2 = " + output);
                 debug.setVisibility(View.INVISIBLE);
                 try {
                     usuarios_detalhados = parseJSON(output);
@@ -61,7 +64,7 @@ public class listaUsuarios extends AppCompatActivity {
     }
 
     private void startAdapter(){
-        usuarioListAdapter adapter = new usuarioListAdapter(this, usuarios_detalhados, eventosID);
+        usuarioListAdapter adapter = new usuarioListAdapter(this, usuarios_detalhados,eventosID);
         usuariosDisponiveis.setAdapter(adapter);
 
         usuariosDisponiveis.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -69,10 +72,8 @@ public class listaUsuarios extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), mostrarUsuario.class);
                 intent.putExtra("ID", eventosID.get(position));
-                intent.putExtra("nome", usuarios_detalhados.get(position)[1]);
-                intent.putExtra("sobrenome", usuarios_detalhados.get(position)[2]);
-                intent.putExtra("email", usuarios_detalhados.get(position)[3]);
-                intent.putExtra("numero", usuarios_detalhados.get(position)[5]);
+                intent.putExtra("email", usuarios_detalhados.get(position)[0]);
+
 
                 startActivity(intent);
             }
@@ -136,7 +137,7 @@ public class listaUsuarios extends AppCompatActivity {
 //        eventosID.add("20");
 
     }
-
+/*
 
     private String humanizeDate (String date){
         String formatedDate = "";
@@ -195,14 +196,14 @@ public class listaUsuarios extends AppCompatActivity {
         monthsAbr.add(12,getString(R.string.dez));
     }
 
-
+*/
     private ArrayList<String[]> parseJSON(String JSONinput) throws JSONException {
         JSONObject jsonObject = new JSONObject(JSONinput);
         JSONArray eventos = jsonObject.getJSONArray("evento");
         ArrayList<String[]> evento_completo = new ArrayList<>();
         for(int i = 0 ; i < eventos.length(); i++){
             JSONObject jsonObject1 = eventos.getJSONObject(i);
-            String[] valores = new String[]{jsonObject1.getString("ID"), jsonObject1.getString("nome"), humanizeDate(jsonObject1.getString("Data_inicio")), humanizeDate(jsonObject1.getString("Data_fim")),abreviateDate(jsonObject1.getString("Data_inicio")), jsonObject1.getString("local_principal")};
+            String[] valores = new String[]{jsonObject1.getString("ID"), jsonObject1.getString("nome"), jsonObject1.getString("sobrenome"), jsonObject1.getString("email"), jsonObject1.getString("numero")};
             evento_completo.add(valores);
         }
         return evento_completo;
